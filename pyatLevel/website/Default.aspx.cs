@@ -18,6 +18,8 @@ public partial class _Default : System.Web.UI.Page
     protected void Click_Click(object sender, EventArgs e)
     {
         pyatLevelLogic plLogic = new pyatLevelLogic();
-      int res =  plLogic.getuserid(usernamefield.Text, passwordfield.Text);
+        int res = plLogic.getuserid(usernamefield.Text, passwordfield.Text);
+        Response.Redirect("HomePage.aspx");
+       
     }
 }
