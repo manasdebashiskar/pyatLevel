@@ -1,0 +1,7 @@
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatLevelLogic\obj\Debug\ResolveAssemblyReference.cache
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatLevelLogic\bin\Debug\pyatLevelLogic.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatLevelLogic\bin\Debug\pyatLevelLogic.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatLevelLogic\obj\Debug\pyatLevelLogic.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatLevelLogic\obj\Debug\pyatLevelLogic.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatLevelLogic\bin\Debug\DAL.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatLevelLogic\bin\Debug\DAL.pdb

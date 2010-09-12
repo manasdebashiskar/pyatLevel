@@ -1,0 +1,6 @@
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\DAL\bin\Debug\DAL.dll.config
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\DAL\bin\Debug\DAL.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\DAL\bin\Debug\DAL.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\DAL\obj\Debug\DAL.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\DAL\obj\Debug\DAL.pdb
