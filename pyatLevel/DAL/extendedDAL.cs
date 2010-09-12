@@ -5,12 +5,14 @@ namespace DAL
     {
          public partial class tbluserDataTable
         {
+
         }
         public partial class tblpasswordDataTable
         {
         }
         public partial class tbluserinfoDataTable
         {
+            
         }
 
         public partial class tbluserDataRow
@@ -32,7 +34,12 @@ namespace DAL
         }
         public partial class tbluserinfoDataRow
         {
-
+            private pyatLevelDSTableAdapters.tbluserinfoTableAdapter adapter = new DAL.pyatLevelDSTableAdapters.tbluserinfoTableAdapter();
+               
+            public tbluserinfoDataTable getDataByUserID(int userid)
+            {
+                return adapter.GetDataByUserID(userid);
+            }
         }
 
     }

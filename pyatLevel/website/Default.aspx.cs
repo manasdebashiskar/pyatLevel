@@ -19,6 +19,8 @@ public partial class _Default : System.Web.UI.Page
     {
         pyatLevelLogic plLogic = new pyatLevelLogic();
         int res = plLogic.getuserid(usernamefield.Text, passwordfield.Text);
+      //  Response.Redirect("HomePage.aspx");
+        Session.Add("userid", res.ToString());
         Response.Redirect("HomePage.aspx");
        
     }

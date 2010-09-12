@@ -15,6 +15,15 @@ namespace pyatLevelLogicLayer
             return (int)adapter.getIDByNamenPassword(username, password);
         }
 
+        [DataObjectMethod(DataObjectMethodType.Select, true)]
+        public pyatLevelDS.tbluserinfoDataTable getDataByUserID(int userid)
+        {
+            tbluserinfoTableAdapter adapter = new tbluserinfoTableAdapter();
+            pyatLevelDS.tbluserinfoDataTable tbl = new pyatLevelDS.tbluserinfoDataTable();
+            
+           return adapter.GetDataByUserID(userid);
+        }
+
     }
 
 }
