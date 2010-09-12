@@ -1,0 +1,9 @@
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\pyatWebService.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\pyatWebService.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\obj\Debug\ResolveAssemblyReference.cache
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\obj\Debug\pyatWebService.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\obj\Debug\pyatWebService.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\DAL.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\pyatLevelLogic.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\DAL.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\pyatLevelLogic.pdb

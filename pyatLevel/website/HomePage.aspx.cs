@@ -17,13 +17,9 @@ public partial class HomePage : System.Web.UI.Page
         try
         {
             string strName = Request.QueryString["userid"];
-            
             useridval.Text = strName;
         }
         catch { }
-
-        pyatLevelLogic plLogic = new pyatLevelLogic();
-      //  plLogic.getDataByUserID((int)useridval.Text);
        
     }
 }

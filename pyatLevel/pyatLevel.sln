@@ -34,6 +34,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\website\", "website\
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pyatWebService", "pyatWebService\pyatWebService.csproj", "{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -74,6 +80,16 @@ Global
 		{49BEA751-E519-4D61-A1F2-07584AABFFAC}.Release|Any CPU.ActiveCfg = Debug|.NET
 		{49BEA751-E519-4D61-A1F2-07584AABFFAC}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
 		{49BEA751-E519-4D61-A1F2-07584AABFFAC}.Release|Mixed Platforms.Build.0 = Debug|.NET
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Release|.NET.ActiveCfg = Release|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0D5F5880-87CE-4907-B4B8-DCBB3EAFA177}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

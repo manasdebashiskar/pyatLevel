@@ -11,6 +11,7 @@ namespace pyatLevelLogicLayer
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public int getuserid(string username, string password)
         {
+           //TODO: Salt Hash implementation.
             DAL.pyatLevelDSTableAdapters.tbluserTableAdapter adapter = new DAL.pyatLevelDSTableAdapters.tbluserTableAdapter();
             return (int)adapter.getIDByNamenPassword(username, password);
         }
@@ -19,9 +20,7 @@ namespace pyatLevelLogicLayer
         public pyatLevelDS.tbluserinfoDataTable getDataByUserID(int userid)
         {
             tbluserinfoTableAdapter adapter = new tbluserinfoTableAdapter();
-            pyatLevelDS.tbluserinfoDataTable tbl = new pyatLevelDS.tbluserinfoDataTable();
-            
-           return adapter.GetDataByUserID(userid);
+             return adapter.GetDataByUserID(userid);
         }
 
     }

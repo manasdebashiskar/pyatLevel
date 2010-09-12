@@ -18,9 +18,19 @@ public partial class _Default : System.Web.UI.Page
     protected void Click_Click(object sender, EventArgs e)
     {
         pyatLevelLogic plLogic = new pyatLevelLogic();
-        int res = plLogic.getuserid(usernamefield.Text, passwordfield.Text);
-      //  Response.Redirect("HomePage.aspx");
-        Session.Add("userid", res.ToString());
+        int res;
+        try
+        {
+            res = plLogic.getuserid(usernamefield.Text, passwordfield.Text);
+
+
+            //TODO : store session info.
+            //TODO: Logic to redirect only on valid session.
+            Session.Add("userid", res.ToString());
+        }
+        catch
+        {
+        }
         Response.Redirect("HomePage.aspx");
        
     }
