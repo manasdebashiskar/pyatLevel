@@ -22,15 +22,21 @@ namespace pyatWebService
     {
 
         [WebMethod]
-        public string getUserInfo(int userid )
+        public string getUserInfo(string userid )
         {
-            XmlReturnReader xmlreader = new XmlReturnReader();
-            string name = "manas";
-           
             pyatLevelLogic pLG = new pyatLevelLogic();
             DataSet ds = new DataSet();
-            ds.Tables.Add(pLG.getDataByUserID(userid));
+            ds.Tables.Add(pLG.getDataByUserID(Convert.ToInt32(userid)));
             return (ds.GetXml());
         }
+
+        //[WebMethod]
+        //public string setUserInfo(i)
+        //{
+        //    pyatLevelLogic pLG = new pyatLevelLogic();
+        //    DataSet ds = new DataSet();
+        //    ds.Tables.Add(pLG.getDataByUserID(userid));
+        //    return (ds.GetXml());
+        //}
     }
 }
