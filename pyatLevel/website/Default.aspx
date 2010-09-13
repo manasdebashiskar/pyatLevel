@@ -9,10 +9,13 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        &nbsp;<asp:TextBox ID="usernamefield" runat="server"></asp:TextBox><br />
+        <br />
+        <asp:TextBox ID="usernamefield" runat="server"></asp:TextBox><br />
         <asp:Label ID="Label1" runat="server" Text="User Name"></asp:Label>
         <br />
         <br />
+        <asp:TextBox ID="EmailIDField" runat="server"></asp:TextBox><br />
+        Email ID<br />
         <br />
         <asp:TextBox ID="passwordfield" runat="server" TextMode="Password"></asp:TextBox><br />
         <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
@@ -27,9 +30,17 @@
     </div>
         <br />
         <br />
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="EmailIDField"
+            ErrorMessage="Enter valid Email ID" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator><br />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="usernamefield"
+            ErrorMessage="User Name is a mandatory field"></asp:RequiredFieldValidator><br />
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="EmailIDField"
+            ErrorMessage="Email ID is a mandatory field"></asp:RequiredFieldValidator><br />
         <br />
-        <br />
-        <asp:Button ID="Click" runat="server" OnClick="Click_Click" Text="Click" />
+        <asp:Button ID="Click" runat="server" OnClick="Click_Click" Text="Click" />&nbsp;&nbsp;
+        &nbsp; &nbsp; &nbsp;
+        <asp:HyperLink ID="Register_hyperlink" runat="server" Height="16px" NavigateUrl="~/RegistrationPage.aspx"
+            Width="101px">Register</asp:HyperLink>
     </form>
 </body>
 </html>

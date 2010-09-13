@@ -18,10 +18,9 @@ public partial class _Default : System.Web.UI.Page
     protected void Click_Click(object sender, EventArgs e)
     {
         pyatLevelLogic plLogic = new pyatLevelLogic();
-        int res;
-        try
+       try
         {
-            res = plLogic.getuserid(usernamefield.Text, passwordfield.Text);
+           int res = plLogic.getuserid(usernamefield.Text, passwordfield.Text);
 
 
             //TODO : store session info.
