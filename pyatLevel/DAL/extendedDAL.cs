@@ -20,14 +20,8 @@ namespace DAL
         {
             private pyatLevelDSTableAdapters.tbluserTableAdapter adapter = new DAL.pyatLevelDSTableAdapters.tbluserTableAdapter();
        
-            public int getIDByNamenPassword(string username, string password)
-            {
-                if (adapter.getIDByNamenPassword(username, password) == null)
-                    return 0;
-                else
-                   return (int)adapter.getIDByNamenPassword(username, password);
-                
-            }
+
+         
 
         }
         public partial class tblpasswordDataRow
@@ -35,12 +29,7 @@ namespace DAL
         }
         public partial class tbluserinfoDataRow
         {
-            private pyatLevelDSTableAdapters.tbluserinfoTableAdapter adapter = new DAL.pyatLevelDSTableAdapters.tbluserinfoTableAdapter();
-               
-            public tbluserinfoDataTable getDataByUserID(int userid)
-            {
-                return adapter.GetDataByUserID(userid);
-            }
+            
         }
 
     }
@@ -61,5 +50,8 @@ namespace DAL.pyatLevelDSTableAdapters
     {
     }
 
+    public  class tbltestTableAdapter
+    {
+    }
 
 }

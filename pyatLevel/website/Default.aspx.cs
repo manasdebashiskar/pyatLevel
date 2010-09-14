@@ -20,17 +20,26 @@ public partial class _Default : System.Web.UI.Page
         pyatLevelLogic plLogic = new pyatLevelLogic();
        try
         {
-           int res = plLogic.getuserid(usernamefield.Text, passwordfield.Text);
 
+            int res = plLogic.GetDataByUserNamenPassword(usernamefield.Text, passwordfield.Text);
 
             //TODO : store session info.
+            if (res == 0)
+                loginResult.Text = "Invalid UserName or Password";
             //TODO: Logic to redirect only on valid session.
-            Session.Add("userid", res.ToString());
+
+
+            if (res > 0)
+            {
+                Session.Add("userid", res);
+                Response.Redirect("HomePage.aspx");
+            }
         }
         catch
         {
         }
-        Response.Redirect("HomePage.aspx");
+       
+
        
     }
 }

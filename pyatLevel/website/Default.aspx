@@ -36,6 +36,7 @@
             ErrorMessage="User Name is a mandatory field"></asp:RequiredFieldValidator><br />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="EmailIDField"
             ErrorMessage="Email ID is a mandatory field"></asp:RequiredFieldValidator><br />
+        <asp:Label ID="loginResult" runat="server" ForeColor="Red" Height="12px" Width="384px"></asp:Label><br />
         <br />
         <asp:Button ID="Click" runat="server" OnClick="Click_Click" Text="Click" />&nbsp;&nbsp;
         &nbsp; &nbsp; &nbsp;

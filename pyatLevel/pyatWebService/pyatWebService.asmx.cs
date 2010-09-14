@@ -21,14 +21,14 @@ namespace pyatWebService
     public class pyatWebService : System.Web.Services.WebService
     {
 
-        [WebMethod]
-        public string getUserInfo(string userid )
-        {
-            pyatLevelLogic pLG = new pyatLevelLogic();
-            DataSet ds = new DataSet();
-            ds.Tables.Add(pLG.getDataByUserID(Convert.ToInt32(userid)));
-            return (ds.GetXml());
-        }
+        //[WebMethod]
+        //public string getUserInfo(string userid )
+        //{
+        //    pyatLevelLogic pLG = new pyatLevelLogic();
+        //    DataSet ds = new DataSet();
+        //    ds.Tables.Add(pLG.getDataByUserID(Convert.ToInt32(userid)));
+        //    return (ds.GetXml());
+        //}
 
         //[WebMethod]
         //public string setUserInfo(i)

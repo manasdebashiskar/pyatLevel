@@ -1828,9 +1828,10 @@ SELECT userid, name, address, isactive FROM tbluser WHERE (userid = @userid)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        tbluser.userid\r\nFROM            tbluser INNER JOIN\r\n               " +
-                "          tblpassword ON tbluser.userid = tblpassword.fuserid\r\nWHERE        (tbl" +
-                "user.name = @username) AND (tblpassword.passwd = @password)";
+            this._commandCollection[1].CommandText = @"SELECT        tbluser.userid, tbluser.name, tbluser.address, tbluser.isactive
+FROM            tbluser INNER JOIN
+                         tblpassword ON tbluser.userid = tblpassword.fuserid
+WHERE        (tbluser.name = @username) AND (tblpassword.passwd = @password)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "passwd", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1853,6 +1854,28 @@ SELECT userid, name, address, isactive FROM tbluser WHERE (userid = @userid)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual pyatLevelDS.tbluserDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            pyatLevelDS.tbluserDataTable dataTable = new pyatLevelDS.tbluserDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual pyatLevelDS.tbluserDataTable GetDataByUserNamenPassword(string username, string password) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((username == null)) {
+                throw new global::System.ArgumentNullException("username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(username));
+            }
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(password));
+            }
             pyatLevelDS.tbluserDataTable dataTable = new pyatLevelDS.tbluserDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2044,45 +2067,6 @@ SELECT userid, name, address, isactive FROM tbluser WHERE (userid = @userid)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string name, string address, global::System.Nullable<int> isactive, global::System.Nullable<int> Original_userid, string Original_name, string Original_address, global::System.Nullable<int> Original_isactive) {
             return this.Update(Original_userid, name, address, isactive, Original_userid, Original_name, Original_address, Original_isactive);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object getIDByNamenPassword(string username, string password) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
-            if ((username == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[0].Value = ((string)(username));
-            }
-            if ((password == null)) {
-                throw new global::System.ArgumentNullException("password");
-            }
-            else {
-                command.Parameters[1].Value = ((string)(password));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return null;
-            }
-            else {
-                return ((object)(returnValue));
-            }
         }
     }
     
@@ -2621,12 +2605,10 @@ SELECT userinfoid, fuserid, userinfo1, userinfo2, userinfo3 FROM tbluserinfo WHE
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        tbluserinfo.userinfo1, tbluserinfo.userinfo2, tbluserinfo.userinfo3, tbluser.name, tbluser.address
-FROM            tbluserinfo INNER JOIN
-                         tbluser ON tbluserinfo.fuserid = tbluser.userid
-WHERE        (tbluser.userid = @userid)";
+            this._commandCollection[1].CommandText = "SELECT        userinfoid, fuserid, userinfo1, userinfo2, userinfo3\r\nFROM         " +
+                "   tbluserinfo\r\nWHERE        (fuserid = @userid)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "userid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "fuserid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2653,30 +2635,11 @@ WHERE        (tbluser.userid = @userid)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByUserID(pyatLevelDS.tbluserinfoDataTable dataTable, int userid) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userid));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual pyatLevelDS.tbluserinfoDataTable GetDataByUserID(int userid) {
+        public virtual pyatLevelDS.tbluserinfoDataTable GetUserInfoByUserID(int userid) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(userid));
             pyatLevelDS.tbluserinfoDataTable dataTable = new pyatLevelDS.tbluserinfoDataTable();
-            dataTable.Constraints.Clear();
-
-          
-            System.Data.DataColumnCollection columncc = dataTable.Columns;
-            foreach (System.Data.DataColumn dc in columncc) { dc.AllowDBNull = true; }
-
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

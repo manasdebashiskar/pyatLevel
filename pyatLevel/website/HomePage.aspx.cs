@@ -16,8 +16,9 @@ public partial class HomePage : System.Web.UI.Page
     {
         try
         {
-            string strName = Request.QueryString["userid"];
+            string strName = Session["userid"].ToString();
             useridval.Text = strName;
+            
         }
         catch { }
        
