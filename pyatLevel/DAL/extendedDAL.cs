@@ -18,9 +18,10 @@ namespace DAL
 
         public partial class tbluserDataRow
         {
-            private pyatLevelDSTableAdapters.tbluserTableAdapter adapter = new DAL.pyatLevelDSTableAdapters.tbluserTableAdapter();
-       
-
+          // private pyatLevelDSTableAdapters.tbluserTableAdapter adapter = new DAL.pyatLevelDSTableAdapters.tbluserTableAdapter();
+            
+                   
+            
          
 
         }
@@ -50,8 +51,5 @@ namespace DAL.pyatLevelDSTableAdapters
     {
     }
 
-    public  class tbltestTableAdapter
-    {
-    }
-
+    
 }

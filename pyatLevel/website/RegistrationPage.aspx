@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" >
+        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" ActiveStepIndex="1" >
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server">
                     <ContentTemplate>
@@ -24,7 +24,7 @@
                                 <td>
                                     <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
-                                        ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -33,7 +33,7 @@
                                 <td>
                                     <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
-                                        ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -43,7 +43,7 @@
                                     <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword"
                                         ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required."
-                                        ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -52,34 +52,34 @@
                                 <td>
                                     <asp:TextBox ID="Email" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
-                                        ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <asp:Label ID="QuestionLabel" runat="server" AssociatedControlID="Question">Security Question:</asp:Label></td>
+                                    <asp:Label ID="Address" runat="server" AssociatedControlID="Question">Address</asp:Label></td>
                                 <td>
                                     <asp:TextBox ID="Question" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question"
                                         ErrorMessage="Security question is required." ToolTip="Security question is required."
-                                        ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer">Security Answer:</asp:Label></td>
+                                    <asp:Label ID="PhoneLabel" runat="server" AssociatedControlID="Answer">Phone#</asp:Label></td>
                                 <td>
                                     <asp:TextBox ID="Answer" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer"
                                         ErrorMessage="Security answer is required." ToolTip="Security answer is required."
-                                        ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                        ValidationGroup="CreateUserWizard">*</asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="center" colspan="2">
                                     <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="Password"
                                         ControlToValidate="ConfirmPassword" Display="Dynamic" ErrorMessage="The Password and Confirmation Password must match."
-                                        ValidationGroup="CreateUserWizard1"></asp:CompareValidator>
+                                        ValidationGroup="CreateUserWizard"></asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -104,7 +104,7 @@
                             <tr>
                                 <td align="right" colspan="2">
                                     <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue"
-                                        Text="Continue" ValidationGroup="CreateUserWizard1" />
+                                        Text="Continue" ValidationGroup="CreateUserWizard1" OnClick="ContinueButton_Click" />
                                 </td>
                             </tr>
                         </table>

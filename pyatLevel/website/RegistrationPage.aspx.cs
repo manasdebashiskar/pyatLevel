@@ -8,8 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using DAL;
-using DAL.pyatLevelDSTableAdapters;
+using pyatLevelLogicLayer;
 
 public partial class RegistrationPage : System.Web.UI.Page
 {
@@ -19,9 +18,24 @@ public partial class RegistrationPage : System.Web.UI.Page
     }
     protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
     {
-       //DAL.pyatLevelDSTableAdapters.
-       tbltestTableAdapter a = new tbltestTableAdapter();
-        
-
+        pyatLevelLogicLayer.pyatLevelLogic blObj = new pyatLevelLogic();
+        try
+        {
+           
+            int success = blObj.addNewUser(CreateUserWizard.UserName, CreateUserWizard.Password, CreateUserWizard.Email, CreateUserWizard.Question, CreateUserWizard.Answer);
+            if (success)
+            {
+                //user information was inserted successfully.
+                //I guess more to be done when user info is inserted fully.
+            }
+        }
+        catch
+        {
+        }
+       
+    }
+    protected void ContinueButton_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("http://localhost:49770/website/default.aspx");
     }
 }

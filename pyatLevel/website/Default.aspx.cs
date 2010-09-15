@@ -20,7 +20,7 @@ public partial class _Default : System.Web.UI.Page
         pyatLevelLogic plLogic = new pyatLevelLogic();
        try
         {
-
+           
             int res = plLogic.GetDataByUserNamenPassword(usernamefield.Text, passwordfield.Text);
 
             //TODO : store session info.
