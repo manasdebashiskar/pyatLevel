@@ -112,6 +112,14 @@ namespace pyatLevelLogicLayer
 
         }
 
+        [DataObjectMethod(DataObjectMethodType.Update, true)]
+        public int UpdateUserInfoByUserInfoID( Int32 userinfoid   ,  string UserName,  string  Address,  string Phone ,string Email)
+        {
+            DAL.pyatLevelDSTableAdapters.tbluserinfoTableAdapter infoAdapter = new tbluserinfoTableAdapter();
+           return infoAdapter.UpdateUserInfoByUserInfoID(UserName, Address, Phone, Email, userinfoid);
+            
+        }
+
     }
 
 }

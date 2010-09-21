@@ -11,16 +11,12 @@ using System.Web.UI.HtmlControls;
 using pyatLevelLogicLayer;
 
 public partial class HomePage : System.Web.UI.Page
-{
+{   
     protected void Page_Load(object sender, EventArgs e)
-    {
-        try
-        {
+    {   
+         
             string strName = Session["userid"].ToString();
             useridval.Text = strName;
-            
-        }
-        catch { }
-       
+   
     }
 }

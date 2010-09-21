@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" ActiveStepIndex="1" >
+        <asp:CreateUserWizard ID="CreateUserWizard" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" >
             <WizardSteps>
                 <asp:CreateUserWizardStep runat="server">
                     <ContentTemplate>
@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <asp:Label ID="Address" runat="server" AssociatedControlID="Question">Address</asp:Label></td>
+                                    <asp:Label ID="CompanyName" runat="server" AssociatedControlID="Question">Company Name & Address</asp:Label></td>
                                 <td>
                                     <asp:TextBox ID="Question" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question"
@@ -67,7 +67,7 @@
                             </tr>
                             <tr>
                                 <td align="right">
-                                    <asp:Label ID="PhoneLabel" runat="server" AssociatedControlID="Answer">Phone#</asp:Label></td>
+                                    <asp:Label ID="PhoneLabel" runat="server" AssociatedControlID="Answer">Phone</asp:Label></td>
                                 <td>
                                     <asp:TextBox ID="Answer" runat="server"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer"

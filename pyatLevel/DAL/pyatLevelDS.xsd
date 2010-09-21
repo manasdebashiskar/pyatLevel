@@ -82,7 +82,7 @@ SELECT userid, name, address, isactive FROM tbluser WHERE (userid = @userid)</Co
               <Mapping SourceColumn="isactive" DataSetColumn="isactive" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="addNewUser" Modifier="Public" Name="addNewUser" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="addNewUser">
+              <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="addNewUser" Modifier="Public" Name="addNewUser" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="addNewUser">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
                     <CommandText>insert into tbluser (name, address, isactive)
@@ -115,7 +115,7 @@ WHERE        (tbluser.name = @username) AND (tblpassword.passwd = @password)</Co
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="pyatLevel.dbo.tbluser" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="GetUserIDByName" Modifier="Public" Name="GetUserIDByName" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="GetUserIDByName">
+              <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="pyatLevel.dbo.tbluser" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="GetUserIDByName" Modifier="Public" Name="GetUserIDByName" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="GetUserIDByName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
                     <CommandText>SELECT        userid
@@ -213,7 +213,7 @@ SELECT passwordid, salt, passwd, setbyuser, fuserid FROM tblpassword WHERE (pass
               <Mapping SourceColumn="fuserid" DataSetColumn="fuserid" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="SetPasswordInfo" Modifier="Public" Name="SetPasswordInfo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="SetPasswordInfo">
+              <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="SetPasswordInfo" Modifier="Public" Name="SetPasswordInfo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="SetPasswordInfo">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
                     <CommandText>INSERT INTO tblpassword
@@ -240,7 +240,7 @@ VALUES        (@salt,@password,@setbyuser,@userid)
               <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="pyatLevel.dbo.tbluserinfo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="False">
-                    <CommandText>DELETE FROM [dbo].[tbluserinfo] WHERE (([userinfoid] = @Original_userinfoid) AND ([fuserid] = @Original_fuserid) AND ((@IsNull_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Original_UserName)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_Phone# = 1 AND [Phone#] IS NULL) OR ([Phone#] = @Original_Phone#)) AND ([Email] = @Original_Email))</CommandText>
+                    <CommandText>DELETE FROM [dbo].[tbluserinfo] WHERE (([userinfoid] = @Original_userinfoid) AND ([fuserid] = @Original_fuserid) AND ((@IsNull_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Original_UserName)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ([Email] = @Original_Email))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_userinfoid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="userinfoid" SourceColumnNullMapping="False" SourceVersion="Original">
                       </Parameter>
@@ -254,9 +254,9 @@ VALUES        (@salt,@password,@setbyuser,@userid)
                       </Parameter>
                       <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="False" SourceVersion="Original">
                       </Parameter>
-                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Phone#" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Phone#" SourceColumnNullMapping="True" SourceVersion="Original">
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Phone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="True" SourceVersion="Original">
                       </Parameter>
-                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Phone#" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Phone#" SourceColumnNullMapping="False" SourceVersion="Original">
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Phone" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="False" SourceVersion="Original">
                       </Parameter>
                       <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="False" SourceVersion="Original">
                       </Parameter>
@@ -265,8 +265,8 @@ VALUES        (@salt,@password,@setbyuser,@userid)
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="False">
-                    <CommandText>INSERT INTO [dbo].[tbluserinfo] ([fuserid], [UserName], [Address], [Phone#], [Email]) VALUES (@fuserid, @UserName, @Address, @Phone#, @Email);
-SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WHERE (userinfoid = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [dbo].[tbluserinfo] ([fuserid], [UserName], [Address], [Phone], [Email]) VALUES (@fuserid, @UserName, @Address, @Phone, @Email);
+SELECT userinfoid, fuserid, UserName, Address, Phone, Email FROM tbluserinfo WHERE (userinfoid = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@fuserid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fuserid" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
@@ -274,7 +274,7 @@ SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WH
                       </Parameter>
                       <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
-                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Phone#" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Phone#" SourceColumnNullMapping="False" SourceVersion="Current">
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Phone" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
                       <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
@@ -283,15 +283,15 @@ SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WH
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="False">
-                    <CommandText>SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM dbo.tbluserinfo</CommandText>
+                    <CommandText>SELECT userinfoid, fuserid, UserName, Address, Phone, Email FROM dbo.tbluserinfo</CommandText>
                     <Parameters>
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="False">
-                    <CommandText>UPDATE [dbo].[tbluserinfo] SET [fuserid] = @fuserid, [UserName] = @UserName, [Address] = @Address, [Phone#] = @Phone#, [Email] = @Email WHERE (([userinfoid] = @Original_userinfoid) AND ([fuserid] = @Original_fuserid) AND ((@IsNull_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Original_UserName)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_Phone# = 1 AND [Phone#] IS NULL) OR ([Phone#] = @Original_Phone#)) AND ([Email] = @Original_Email));
-SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WHERE (userinfoid = @userinfoid)</CommandText>
+                    <CommandText>UPDATE [dbo].[tbluserinfo] SET [fuserid] = @fuserid, [UserName] = @UserName, [Address] = @Address, [Phone] = @Phone, [Email] = @Email WHERE (([userinfoid] = @Original_userinfoid) AND ([fuserid] = @Original_fuserid) AND ((@IsNull_UserName = 1 AND [UserName] IS NULL) OR ([UserName] = @Original_UserName)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ([Email] = @Original_Email));
+SELECT userinfoid, fuserid, UserName, Address, Phone, Email FROM tbluserinfo WHERE (userinfoid = @userinfoid)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@fuserid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="fuserid" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
@@ -299,7 +299,7 @@ SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WH
                       </Parameter>
                       <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
-                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Phone#" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Phone#" SourceColumnNullMapping="False" SourceVersion="Current">
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Phone" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
                       <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
@@ -315,9 +315,9 @@ SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WH
                       </Parameter>
                       <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Address" SourceColumnNullMapping="False" SourceVersion="Original">
                       </Parameter>
-                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Phone#" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Phone#" SourceColumnNullMapping="True" SourceVersion="Original">
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Phone" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="True" SourceVersion="Original">
                       </Parameter>
-                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Phone#" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Phone#" SourceColumnNullMapping="False" SourceVersion="Original">
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Phone" Precision="18" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Phone" SourceColumnNullMapping="False" SourceVersion="Original">
                       </Parameter>
                       <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Email" SourceColumnNullMapping="False" SourceVersion="Original">
                       </Parameter>
@@ -333,15 +333,15 @@ SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WH
               <Mapping SourceColumn="fuserid" DataSetColumn="fuserid" />
               <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
               <Mapping SourceColumn="Address" DataSetColumn="Address" />
-              <Mapping SourceColumn="Phone#" DataSetColumn="Phone#" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
               <Mapping SourceColumn="Email" DataSetColumn="Email" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="AddUserInfo" Modifier="Public" Name="AddUserInfo" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="AddUserInfo">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
-                    <CommandText>INSERT INTO [dbo].[tbluserinfo] ([fuserid], [UserName], [Address], [Phone#], [Email]) VALUES (@fuserid, @UserName, @Address, @Phone#, @Email);
-SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WHERE (userinfoid = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [dbo].[tbluserinfo] ([fuserid], [UserName], [Address], [Phone], [Email]) VALUES (@fuserid, @UserName, @Address, @Phone, @Email);
+SELECT userinfoid, fuserid, UserName, Address, Phone, Email FROM tbluserinfo WHERE (userinfoid = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="False" AutogeneratedName="fuserid" ColumnName="fuserid" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@fuserid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="fuserid" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
@@ -349,7 +349,7 @@ SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WH
                       </Parameter>
                       <Parameter AllowDbNull="True" AutogeneratedName="Address" ColumnName="Address" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Address" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
-                      <Parameter AllowDbNull="True" AutogeneratedName="Phone#" ColumnName="Phone#" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="numeric(18, 0)" DbType="String" Direction="Input" ParameterName="@Phone#" Precision="18" ProviderType="NVarChar" Scale="0" Size="9" SourceColumn="Phone#" SourceColumnNullMapping="False" SourceVersion="Current">
+                      <Parameter AllowDbNull="True" AutogeneratedName="Phone" ColumnName="Phone" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="numeric(18, 0)" DbType="String" Direction="Input" ParameterName="@Phone" Precision="18" ProviderType="NVarChar" Scale="0" Size="9" SourceColumn="Phone" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
                       <Parameter AllowDbNull="False" AutogeneratedName="Email" ColumnName="Email" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Email" SourceColumnNullMapping="False" SourceVersion="Current">
                       </Parameter>
@@ -360,7 +360,7 @@ SELECT userinfoid, fuserid, UserName, Address, Phone#, Email FROM tbluserinfo WH
               <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="pyatLevel.dbo.tbluserinfo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetUserinfoByUserId" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetUserinfoByUserId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetUserinfoByUserId" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
-                    <CommandText>SELECT        userinfoid, fuserid, UserName, Address, Phone#, Email
+                    <CommandText>SELECT        userinfoid, fuserid, UserName, Address, Phone, Email
 FROM            tbluserinfo
 WHERE        (fuserid = @userid)</CommandText>
                     <Parameters>
@@ -369,6 +369,28 @@ WHERE        (fuserid = @userid)</CommandText>
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="pyatLevelConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="UpdateUserInfoByUserInfoID" Modifier="Public" Name="UpdateUserInfoByUserInfoID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateUserInfoByUserInfoID">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbluserinfo
+SET                UserName = @UserName, Address = @Address, Phone = @Phone, Email = @Email
+WHERE        (userinfoid = @userinfoid); 
+SELECT userinfoid, fuserid, UserName, Address, Phone, Email FROM tbluserinfo WHERE (userinfoid = @userinfoid)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="UserName" ColumnName="UserName" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@UserName" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="UserName" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Address" ColumnName="Address" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Address" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Address" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Phone" ColumnName="Phone" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Phone" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Phone" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Email" ColumnName="Email" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@Email" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Email" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="userinfoid" ColumnName="userinfoid" DataSourceName="pyatLevel.dbo.tbluserinfo" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@userinfoid" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="userinfoid" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
               </DbSource>
             </Sources>
           </TableAdapter>
@@ -427,7 +449,7 @@ WHERE        (fuserid = @userid)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Phone_x0023_" msprop:Generator_UserColumnName="Phone#" msprop:Generator_ColumnPropNameInRow="_Phone_" msprop:Generator_ColumnVarNameInTable="_columnPhone_" msprop:Generator_ColumnPropNameInTable="_Phone_Column" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Phone" msprop:Generator_UserColumnName="Phone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" type="xs:decimal" minOccurs="0" />
               <xs:element name="Email" msprop:Generator_UserColumnName="Email" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInTable="EmailColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

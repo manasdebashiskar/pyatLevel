@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using pyatLevelLogicLayer;
+using System.Net.Mail;
 
 public partial class _Default : System.Web.UI.Page 
 {
@@ -33,6 +34,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 Session.Add("userid", res);
                 Response.Redirect("HomePage.aspx");
+              
             }
         }
         catch
@@ -42,4 +44,8 @@ public partial class _Default : System.Web.UI.Page
 
        
     }
+
+
+    
+   
 }
