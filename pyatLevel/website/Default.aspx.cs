@@ -19,6 +19,11 @@ public partial class _Default : System.Web.UI.Page
     protected void Click_Click(object sender, EventArgs e)
     {
         pyatLevelLogic plLogic = new pyatLevelLogic();
+        //string m_strRemotingServer = "localhost";
+        //string m_intRemotingPort = "7777";
+        //string strURL = String.Format("tcp://{0}:{1}/pyatLevelLogic", m_strRemotingServer, m_intRemotingPort);
+        //pyatLevelLogic plLogic = new pyatLevelLogic();
+        //plLogic = (pyatLevelLogic)Activator.GetObject(typeof(pyatLevelLogic), strURL);  
        try
         {
            

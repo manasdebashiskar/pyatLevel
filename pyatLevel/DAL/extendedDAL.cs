@@ -32,6 +32,7 @@ namespace DAL
         {
             
         }
+        
 
     }
 
@@ -48,6 +49,9 @@ namespace DAL.pyatLevelDSTableAdapters
     {
     }
     public partial class tbluserinfoTableAdapter
+    {
+    }
+    public partial class tblphoneNumbersTableAdapter
     {
     }
 

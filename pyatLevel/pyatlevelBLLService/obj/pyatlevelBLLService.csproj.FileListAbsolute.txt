@@ -1,0 +1,11 @@
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\obj\Debug\ResolveAssemblyReference.cache
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\obj\Debug\pyatlevelBLLService.ProjectInstaller.resources
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\obj\Debug\pyatlevelBLLService.csproj.GenerateResource.Cache
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\bin\Debug\pyatlevelBLLService.exe
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\bin\Debug\pyatlevelBLLService.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\bin\Debug\pyatLevelLogic.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\bin\Debug\DAL.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\bin\Debug\DAL.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\bin\Debug\pyatLevelLogic.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\obj\Debug\pyatlevelBLLService.exe
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatlevelBLLService\obj\Debug\pyatlevelBLLService.pdb

@@ -4,10 +4,11 @@ using DAL.pyatLevelDSTableAdapters;
 using System.ComponentModel;
 using System.Net.Mail;
 
+
 namespace pyatLevelLogicLayer
 {
     [DataObject(true)]
-    public class pyatLevelLogic
+    public class pyatLevelLogic: MarshalByRefObject
     {
         
 
@@ -122,4 +123,38 @@ namespace pyatLevelLogicLayer
 
     }
 
+    [DataObject(true)]
+    public class pyatLevelLogicPhoneNumber: MarshalByRefObject
+    {
+        [DataObjectMethod(DataObjectMethodType.Insert, true)]
+        public Int32 InsertPhoneNumber(string phoneNumber, string name, string address, int userid)
+        {
+            DAL.pyatLevelDSTableAdapters.tblphoneNumbersTableAdapter phonetblAdapter = new tblphoneNumbersTableAdapter();
+            return phonetblAdapter.InsertPhoneNumber(phoneNumber, name, address, userid);
+        }
+        [DataObjectMethod(DataObjectMethodType.Select, true)]
+        public pyatLevelDS.tblphoneNumbersDataTable GetPhoneNumber(int userid)
+        {
+            DAL.pyatLevelDSTableAdapters.tblphoneNumbersTableAdapter phonetblAdapter = new tblphoneNumbersTableAdapter();
+            return phonetblAdapter.GetPhoneNumberByUserID(userid);
+        }
+    }
+    [DataObject(true)]
+    public class pyatLevelLogicPhoneNumberInsert : MarshalByRefObject
+    {
+
+        [DataObjectMethod(DataObjectMethodType.Select, true)]
+        public pyatLevelDS.tblphoneNumbersDataTable GetPhoneNumber(int userid)
+        {
+            DAL.pyatLevelDSTableAdapters.tblphoneNumbersTableAdapter phonetblAdapter = new tblphoneNumbersTableAdapter();
+            return phonetblAdapter.GetPhoneNumberByUserID(userid);
+        }
+        [DataObjectMethod(DataObjectMethodType.Insert, true)]
+        public Int32 InsertPhoneNumber(string phoneNumber, string name, string address, int userid)
+        {
+            DAL.pyatLevelDSTableAdapters.tblphoneNumbersTableAdapter phonetblAdapter = new tblphoneNumbersTableAdapter();
+            return phonetblAdapter.InsertPhoneNumber(phoneNumber, name, address, userid);
+        }
+        
+    }
 }

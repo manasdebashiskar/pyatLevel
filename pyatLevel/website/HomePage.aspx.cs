@@ -16,7 +16,11 @@ public partial class HomePage : System.Web.UI.Page
     {   
          
             string strName = Session["userid"].ToString();
-            useridval.Text = strName;
+        
    
+    }
+    protected void DetailsView1_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
+    {
+
     }
 }
