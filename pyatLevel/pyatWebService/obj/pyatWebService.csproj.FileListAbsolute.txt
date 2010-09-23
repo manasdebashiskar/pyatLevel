@@ -7,3 +7,6 @@ D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\DAL.dll
 D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\pyatLevelLogic.dll
 D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\DAL.pdb
 D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\bin\pyatLevelLogic.pdb
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\obj\Release\ResolveAssemblyReference.cache
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\obj\Release\pyatWebService.dll
+D:\Users\manas\Desktop\pyatLevel\pyatLevel\pyatWebService\obj\Release\pyatWebService.pdb
