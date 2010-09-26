@@ -8,16 +8,16 @@ using System.Net.Mail;
 namespace pyatLevelLogicLayer
 {
     [DataObject(true)]
-    public class pyatLevelLogic: MarshalByRefObject
+    public class pyatLevelLogic : MarshalByRefObject
     {
-        
+
 
         [DataObjectMethod(DataObjectMethodType.Select, true)]
         public int GetDataByUserNamenPassword(string username, string password)
         {
             tbluserTableAdapter adapter = new tbluserTableAdapter();
             pyatLevelDS.tbluserDataTable tbl = new pyatLevelDS.tbluserDataTable();
-          tbl=  adapter.GetDataByUserNamenPassword(username, password);
+            tbl = adapter.GetDataByUserNamenPassword(username, password);
             if (tbl == null || tbl.Rows.Count == 0)
                 return 0;
             if (tbl.Rows.Count > 1)
@@ -27,11 +27,30 @@ namespace pyatLevelLogicLayer
                 System.Data.DataColumn column = tbl.Columns[0];
                 int value = Convert.ToInt32(tbl.Rows[0][0]);
                 return value;
-                
+
             }
-            
+
         }
 
+        public int LogIn(string username, string Password, string Emailid)
+        {
+            tbluserTableAdapter adapter = new tbluserTableAdapter();
+            pyatLevelDS.tbluserDataTable tbl = new pyatLevelDS.tbluserDataTable();
+
+            tbl = adapter.GetDataByCredentials(username,Password , Emailid);
+            if (tbl == null || tbl.Rows.Count == 0)
+                return 0;
+            if (tbl.Rows.Count > 1)
+                return -1;
+            else
+            {
+                System.Data.DataColumn column = tbl.Columns[0];
+                int value = Convert.ToInt32(tbl.Rows[0][0]);
+                return value;
+
+            }
+
+        }
         [DataObjectMethod(DataObjectMethodType.Select, true)]
         public pyatLevelDS.tbluserinfoDataTable GetUserInfoByUserID(int userID)
         {
@@ -40,17 +59,17 @@ namespace pyatLevelLogicLayer
             try
             {
                 tbl = adapter.GetUserinfoByUserId(userID);
-               
+
             }
             catch
             {
 
             }
-            
+
             return tbl;
 
         }
-        [DataObjectMethod(DataObjectMethodType.Insert,true)]
+        [DataObjectMethod(DataObjectMethodType.Insert, true)]
         public int addUserInfo(int UniqueID, string UserName, string Qustion, string Answer, string Email)
         {
             tbluserinfoTableAdapter adapter = new tbluserinfoTableAdapter();
@@ -58,12 +77,12 @@ namespace pyatLevelLogicLayer
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public int addNewUser(string name,string address, int isactive)
+        public int addNewUser(string name, string emailid, int isactive)
         {
 
             DAL.pyatLevelDSTableAdapters.tbluserTableAdapter adapter = new tbluserTableAdapter();
-            int success = Convert.ToInt32(adapter.addNewUser(name, address, isactive));
-           
+            int success = Convert.ToInt32(adapter.addNewUser(name, emailid, isactive));
+
             if (success > 1)
             {
                 return success;
@@ -86,75 +105,78 @@ namespace pyatLevelLogicLayer
            * */
             int insertionsuccess = -1;
             DAL.pyatLevelDSTableAdapters.tbluserTableAdapter useradapter = new tbluserTableAdapter();
-           DAL.pyatLevelDSTableAdapters.tbluserinfoTableAdapter infoAdapter = new tbluserinfoTableAdapter();
-           DAL.pyatLevelDSTableAdapters.tblpasswordTableAdapter passwordAdapter = new tblpasswordTableAdapter();
+            DAL.pyatLevelDSTableAdapters.tbluserinfoTableAdapter infoAdapter = new tbluserinfoTableAdapter();
+            DAL.pyatLevelDSTableAdapters.tblpasswordTableAdapter passwordAdapter = new tblpasswordTableAdapter();
 
-           if (useradapter.GetUserIDByName(userName) != null)
-           {
-              //we got result back. Which means there is a user with the same name.
-               return -1;
-           }
-           else
-           {
-               try
-               {
+            if (useradapter.GetUserIDByName(userName) != null)
+            {
+                //we got result back. Which means there is a user with the same name.
+                return -1;
+            }
+            else
+            {
+                try
+                {
 
-                   int userid = addNewUser(userName, address, 0);
-                   int success = infoAdapter.AddUserInfo(userid, userName, address, phoneNo, Email);
-                   insertionsuccess = passwordAdapter.SetPasswordInfo(password, password, 0, userid);
-               }
-               catch
-               {
-               }
+                    int userid = addNewUser(userName, address, 0);
+                    int success = infoAdapter.AddUserInfo(userid, userName, address, phoneNo, Email);
+                    insertionsuccess = passwordAdapter.SetPasswordInfo(password, password, 0, userid);
+                }
+                catch
+                {
+                }
 
-           }
+            }
 
-           return insertionsuccess;
+            return insertionsuccess;
 
         }
 
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-        public int UpdateUserInfoByUserInfoID( Int32 userinfoid   ,  string UserName,  string  Address,  string Phone ,string Email)
+        public int UpdateUserInfoByUserInfoID(Int32 userinfoid, string UserName, string Address, string Phone, string Email)
         {
             DAL.pyatLevelDSTableAdapters.tbluserinfoTableAdapter infoAdapter = new tbluserinfoTableAdapter();
-           return infoAdapter.UpdateUserInfoByUserInfoID(UserName, Address, Phone, Email, userinfoid);
-            
+            return infoAdapter.UpdateUserInfoByUserInfoID(UserName, Address, Phone, Email, userinfoid);
+
         }
 
     }
 
     [DataObject(true)]
-    public class pyatLevelLogicPhoneNumber: MarshalByRefObject
-    {
-        [DataObjectMethod(DataObjectMethodType.Insert, true)]
-        public Int32 InsertPhoneNumber(string phoneNumber, string name, string address, int userid)
-        {
-            DAL.pyatLevelDSTableAdapters.tblphoneNumbersTableAdapter phonetblAdapter = new tblphoneNumbersTableAdapter();
-            return phonetblAdapter.InsertPhoneNumber(phoneNumber, name, address, userid);
-        }
-        [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public pyatLevelDS.tblphoneNumbersDataTable GetPhoneNumber(int userid)
-        {
-            DAL.pyatLevelDSTableAdapters.tblphoneNumbersTableAdapter phonetblAdapter = new tblphoneNumbersTableAdapter();
-            return phonetblAdapter.GetPhoneNumberByUserID(userid);
-        }
-    }
-    [DataObject(true)]
-    public class pyatLevelLogicPhoneNumberInsert : MarshalByRefObject
+    public class pyatLevelLogicClient : MarshalByRefObject
     {
 
+
         [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public pyatLevelDS.tblphoneNumbersDataTable GetPhoneNumber(int userid)
+        public pyatLevelDS.tblClientDataTable GetClient(int userid)
         {
-            DAL.pyatLevelDSTableAdapters.tblphoneNumbersTableAdapter phonetblAdapter = new tblphoneNumbersTableAdapter();
-            return phonetblAdapter.GetPhoneNumberByUserID(userid);
+            tblClientTableAdapter adapter = new tblClientTableAdapter();
+            return adapter.GetClientsByUserid(userid);
         }
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-        public Int32 InsertPhoneNumber(string phoneNumber, string name, string address, int userid)
+        public Int32 InsertClient(string name, int userid, string companyAddress)
         {
-            DAL.pyatLevelDSTableAdapters.tblphoneNumbersTableAdapter phonetblAdapter = new tblphoneNumbersTableAdapter();
-            return phonetblAdapter.InsertPhoneNumber(phoneNumber, name, address, userid);
+            tblClientTableAdapter adapter = new tblClientTableAdapter();
+            return adapter.InsertClient(name, userid, companyAddress);
         }
-        
+    }
+
+    [DataObject(true)]
+    public class pyatLevelLogicPhoneNumber : MarshalByRefObject
+    {
+
+
+        [DataObjectMethod(DataObjectMethodType.Select, true)]
+        public pyatLevelDS.tblphoneNumbersDataTable GetPhoneNumber(int clientid)
+        {
+            tblphoneNumbersTableAdapter adapter = new tblphoneNumbersTableAdapter();
+            return adapter.GetPhoneNumbersByClientID(clientid);
+        }
+        [DataObjectMethod(DataObjectMethodType.Insert, true)]
+        public Int32 InsertPhoneNumber(string phonenumber,string name, string emailid, int userid, int clientid)
+        {
+            tblphoneNumbersTableAdapter adapter = new tblphoneNumbersTableAdapter();
+            return adapter.InsertPhoneNumber(phonenumber, name, emailid, userid, clientid);
+        }
     }
 }

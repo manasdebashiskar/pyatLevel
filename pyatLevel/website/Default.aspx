@@ -42,6 +42,12 @@
         &nbsp; &nbsp; &nbsp;
         <asp:HyperLink ID="Register_hyperlink" runat="server" Height="16px" NavigateUrl="~/RegistrationPage.aspx"
             Width="101px">Register</asp:HyperLink>
+        <br />
+        <br />
+        <br />
+        <br />
+  
+     
     </form>
 </body>
 </html>

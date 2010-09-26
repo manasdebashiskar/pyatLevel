@@ -14,7 +14,7 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Click_Click(null, null);
     }
     protected void Click_Click(object sender, EventArgs e)
     {
@@ -26,15 +26,15 @@ public partial class _Default : System.Web.UI.Page
         //plLogic = (pyatLevelLogic)Activator.GetObject(typeof(pyatLevelLogic), strURL);  
        try
         {
-           
-            int res = plLogic.GetDataByUserNamenPassword(usernamefield.Text, passwordfield.Text);
-
+            int res;
+           //  res = plLogic.GetDataByUserNamenPassword(usernamefield.Text, passwordfield.Text);
+            res = plLogic.LogIn(usernamefield.Text, passwordfield.Text, EmailIDField.Text);
             //TODO : store session info.
-            if (res == 0)
-                loginResult.Text = "Invalid UserName or Password";
+           // if (res == 0)
+            //    loginResult.Text = "Invalid UserName or Password";
             //TODO: Logic to redirect only on valid session.
 
-
+            
             if (res > 0)
             {
                 Session.Add("userid", res);
